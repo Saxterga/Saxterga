@@ -1,0 +1,99 @@
+/* montserrat-regular - latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/montserrat-v15-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('../fonts/montserrat-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/montserrat-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/montserrat-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/montserrat-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/montserrat-v15-latin-regular.svg#Montserrat') format('svg'); /* Legacy iOS */
+}
+body {
+    background-image: linear-gradient(to right, #848484, #E6E6E6, #848484);
+    font-family: 'MyWebFont', Fallback, sans-serif;
+}
+
+#mainContainer {
+    width: 1000px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -500px;
+    box-shadow: 4px 4px 10px 5px rgba(0, 0, 0, .2);
+}
+#imgFrame {
+    position: absolute;
+    top:0;
+    left: 50px;
+    width: 900px;
+    height: 500px;
+    padding:0;
+}
+#imgInFrame {
+    width: 900px;
+    height: 500px;
+}
+.arrowPanels {
+    width:50px;
+    height: 500px;
+    position: absolute;
+    top:0;
+}
+.arrowPanelLeft {
+    left:0;
+    background-color:#D8D8D8;
+}
+.arrowPanelLeft:hover {
+    background-color: #E6E6E6;
+}
+.arrowPanelRight {
+    left:950px;
+    background-color:#D8D8D8;
+}
+.arrowPanelRight:hover {
+    background-color: #E6E6E6;
+}
+
+#leftArrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+#rightArrow {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    transform: rotateZ(180deg);
+}
+.descriptionPanel {
+    position: absolute;
+    width: 900px;
+    height:100px;
+    top:400px;
+    left: 50px;
+    background-color: black;
+    opacity: 0.6;
+}
+#descrTitle {
+    color: white;
+    text-transform:uppercase;
+    margin: 10px 20px 10px 20px;
+}
+#descrContent {
+    color: white;
+    text-align: justify;
+    margin: 0 20px 0 20px;
+}
