@@ -1,9 +1,10 @@
 let currentImg =0;
+let previousImg =0;
 let imgArray = [
     {
         photo: "./imgs/img1.jpg",
-        title: "Riverbend at fall",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        title: "Snowy mountain and a lake",
+        description: "Hendrerit gravida rutrum quisque non tellus orci."     
     },
     {
         photo: "./imgs/img2.jpg",
@@ -27,12 +28,12 @@ let imgArray = [
     },
     {
         photo: "./imgs/img6.jpg",
-        title: "Snowy mountain and a lake",
-        description: "Hendrerit gravida rutrum quisque non tellus orci."
+        title: "Riverbend at fall",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         photo: "./imgs/img7.jpg",
-        title: "Bridge over river and a city",
+        title: "Bridge over a river",
         description: "Convallis posuere morbi leo urna molestie at elementum eu. Orci a scelerisque purus semper eget duis at."
     },
     {
@@ -42,28 +43,43 @@ let imgArray = [
     },
 ];
 
-document.onload=changeImg();
+document.onload=changeImg(currentImg, previousImg);
 
-function changeImg() {
-    document.querySelector("#imgInFrame").src=imgArray[currentImg].photo;
-    document.querySelector("#descrTitle").innerHTML=imgArray[currentImg].title;
-    document.querySelector("#descrContent").innerHTML=imgArray[currentImg].description;
-}
+
+function changeImg(position, formerPosition) {
+    document.querySelector("#imgInFrame").src=imgArray[position].photo;
+    document.querySelector("#descrTitle").innerHTML=imgArray[position].title;
+    document.querySelector("#descrContent").innerHTML=imgArray[position].description;
+    
+    children = document.querySelector("#thumbnailsFrame");
+    children.children[position].style.borderColor = "gold";
+    if (formerPosition !== position) {
+        children.children[formerPosition].style.borderColor = "#848484";
+    }
+};
 
 let leftAP = document.querySelector(".arrowPanelLeft");
 leftAP.addEventListener("click", () => {
+    previousImg=currentImg;
     currentImg-=1;
     if (currentImg<0) {
         currentImg=7;
     }
-    changeImg();
+    changeImg(currentImg, previousImg);
 });
 
 let rightAP = document.querySelector(".arrowPanelRight");
 rightAP.addEventListener("click", () => {
+    previousImg=currentImg;
     currentImg+=1;
     if (currentImg>7) {
         currentImg=0;
     };
-    changeImg();
+    changeImg(currentImg, previousImg);
 })
+
+function positionSetting (pos) {
+    previousImg=currentImg;
+    currentImg=pos;
+    changeImg(currentImg, previousImg);
+};
